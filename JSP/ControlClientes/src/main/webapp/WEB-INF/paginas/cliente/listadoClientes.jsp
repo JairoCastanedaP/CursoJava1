@@ -39,6 +39,27 @@
                     </table>
                 </div>
             </div>
+            <!--Terjetas para los totales-->
+            <div class="col-md-3">
+                <div class="card text-center bg-danger text-white mb-3">
+                    <div class="card-body">
+                        <h3>Saldo Total</h3>
+                        <h4 class="display-4">
+                            <fmt:formatNumber value="${saldoTotal}" type="currency"/>
+                        </h4>
+                    </div>
+                </div>
+                <div>
+                    <div class="card text-center bg-success text-white mb-3">
+                        <div class="card-body">
+                            <h3>Total Clientes</h3>
+                            <h4 class="display-4"></h4>
+                            <i class="fas fa-users"></i>${totalClientes}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Fin Terjetas para los totales-->
         </div>
     </div>
 </select>
