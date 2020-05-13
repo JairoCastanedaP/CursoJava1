@@ -1,4 +1,4 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,17 +16,17 @@
         <!--Cabecero-->
         <jsp:include page="WEB-INF/paginas/comunes/cabecero.jsp"/>
         <!--Cabecero-->
-        
+
         <!--Botones de navegación-->
-         <jsp:include page="WEB-INF/paginas/comunes/botonesNavegacion.jsp"/>
+        <jsp:include page="WEB-INF/paginas/comunes/botonesNavegacion.jsp"/>
         <!--Botones de navegación-->
-        <ul>
-            <c:forEach var="cliente" items="${clientes}">
-                <li>${cliente.idCliente} ${cliente.nombre} ${cliente.apellido} ${cliente.saldo}</li>
-                </c:forEach>
-        </ul>
+
+        <!--Listado Clientes-->
+        <jsp:include page="WEB-INF/paginas/cliente/listadoClientes.jsp"/>
+        <!--Listado Clientes-->
+
         <!--Pie de Pagina-->
-         <jsp:include page="WEB-INF/paginas/comunes/piePagina.jsp"/>
+        <jsp:include page="WEB-INF/paginas/comunes/piePagina.jsp"/>
         <!--Pie de Pagina-->
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
