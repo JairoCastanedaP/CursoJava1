@@ -8,9 +8,9 @@
             <div class="col-md-9">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Listado de clientes</h4>
+                        <h4>Listado de Clientes</h4>
                     </div>
-                    <table class="table table-stripe">
+                    <table class="table table-striped">
                         <thead class="thead-dark">
                             <tr>
                                 <th>#</th>
@@ -20,17 +20,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!--Iteramos elemento de la lista de clientes-->
-                            <c:forEach var="cliente" items="${clientes}">
+                            <!-- Iteramos cada elemento de la lista de clientes -->
+                            <c:forEach var="cliente" items="${clientes}" varStatus="status" >
                                 <tr>
-                                    <td>${cliente.idCliente}</td>
+                                    <td>${status.count}</td>
                                     <td>${cliente.nombre} ${cliente.apellido}</td>
-                                    <!--<td>${cliente.saldo}</td>-->
-                                    <td><fmt:formatNumber value="${cliente.saldo}" type="currency"/></td>
+                                    <td> <fmt:formatNumber value="${cliente.saldo}" type="currency"/> </td>
                                     <td>
                                         <a href="${pageContext.request.contextPath}/ServletControlador?accion=editar&idCliente=${cliente.idCliente}"
                                            class="btn btn-secondary">
-                                            <i class="fas fa-angle-double-right"></i>Editar
+                                            <i class="fas fa-angle-double-right"></i> Editar
                                         </a>
                                     </td>
                                 </tr>
@@ -39,35 +38,32 @@
                     </table>
                 </div>
             </div>
-            <!--Terjetas para los totales-->
+
+            <!--Inicio Tarjetas para los totales-->
             <div class="col-md-3">
                 <div class="card text-center bg-danger text-white mb-3">
                     <div class="card-body">
                         <h3>Saldo Total</h3>
                         <h4 class="display-4">
-                            <fmt:formatNumber value="${saldoTotal}" type="currency"/>
+                            <fmt:formatNumber value="${saldoTotal}" type="currency" />
                         </h4>
                     </div>
                 </div>
-                <div>
-                    <div class="card text-center bg-success text-white mb-3">
-                        <div class="card-body">
-                            <h3>Total Clientes</h3>
-                            <h4 class="display-4"></h4>
-                            <i class="fas fa-users"></i>${totalClientes}
-                        </div>
+
+                <div class="card text-center bg-success text-white mb-3">
+                    <div class="card-body">
+                        <h3>Total Clientes</h3>
+                        <h4 class="display-4">
+                            <i class="fas fa-users"></i> ${totalClientes}
+                        </h4>
                     </div>
-                </div>
+                </div>        
             </div>
-            <!--Fin Terjetas para los totales-->
+            <!--Fin Tarjetas para los totales-->
         </div>
     </div>
-</select>
-<!--
-<ul>
-<c:forEach var="cliente" items="${clientes}">
-    <li>${cliente.idCliente} ${cliente.nombre} ${cliente.apellido} ${cliente.saldo}</li>
-</c:forEach>
-</ul>
--->
+</section>
 
+<!-- Agregar cliente MODAL -->
+<jsp:include page="/WEB-INF/paginas/cliente/agregarCliente.jsp"/>
+                        
