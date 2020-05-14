@@ -14,14 +14,18 @@ public class Conexion {
     private static final String JDBC_USER="root";
     private static final String JDBC_PASSWORD="system";
     
+    private static BasicDataSource dataSource;
+    
     public static DataSource getDataSourse(){
-        BasicDataSource ds= new BasicDataSource();
-        ds.setUrl(JDBC_URL);
-        ds.setUsername(JDBC_USER);
-        ds.setPassword(JDBC_PASSWORD);
-        ds.setInitialSize(50);
+        if(dataSource==null){
         
-        return ds;
+        dataSource= new BasicDataSource();
+        dataSource.setUrl(JDBC_URL);
+        dataSource.setUsername(JDBC_USER);
+        dataSource.setPassword(JDBC_PASSWORD);
+        dataSource.setInitialSize(50);
+        }
+        return dataSource;
     }
     
     public static Connection getConnection() throws SQLException{
