@@ -1,31 +1,34 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package domain;
 
 import java.io.Serializable;
+import javax.persistence.*;
 
-/**
- *
- * @author ENVYX360
- */
+@Entity
 
+@NamedQueries({
+    @NamedQuery(name="Persona.findAll", query="SELECT p FROM Persona p ORDER BY p.idPersona")
+})
+@Table(name="persona")
 public class Persona implements Serializable{
-    private static final long serialVersionUID=1l;
-    private int idPersona;
-    private String nombre;
-    private String apellido;
-    private String email;
-    private String telefono;
+    private static final long serialVersionUID = 1L;
     
-    public Persona(){
-        
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="id_persona")
+    private int idPersona;
+    
+    private String nombre;
+    
+    private String apellido;
+    
+    private String email;
+    
+    private String telefono;
+
+    public Persona() {
     }
 
-    public Persona(int idPersona, String nombre, String apellido, String email, String telefono) {
-        this.idPersona = idPersona;
+    public Persona(String nombre, String apellido, String email, String telefono) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
@@ -76,5 +79,6 @@ public class Persona implements Serializable{
     public String toString() {
         return "Persona{" + "idPersona=" + idPersona + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", telefono=" + telefono + '}';
     }
+    
     
 }

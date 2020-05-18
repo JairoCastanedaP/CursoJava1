@@ -5,49 +5,51 @@
  */
 package servicio;
 
+import datos.PersonaDao;
 import domain.Persona;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 
 /**
  *
  * @author ENVYX360
  */
 @Stateless
-public class PersonaServiceImpl implements PersonaServiceRemote ,PersonaService{
+public class PersonaServiceImpl implements PersonaServiceRemote, PersonaService{
 
+    @Inject
+    private PersonaDao personaDao;
+    
     @Override
     public List<Persona> listarPersonas() {
-        List<Persona> personas = new ArrayList<>();
-        personas.add(new Persona(1,"Juan","Perez","jp@gmai.com","3215478962"));
-        personas.add(new Persona(2,"juaco","charris","jch@gmail.com","3214789632"));
-        return personas;
+       return personaDao.findAllPersonas();
     }
 
     @Override
     public Persona encontrarPersonaPorId(Persona persona) {
-        return null;
+        return personaDao.findPersonaById(persona);
     }
 
     @Override
-    public Persona encontrarPersonaPorEmail(Persona Persona) {
-        return null;
+    public Persona encontrarPersonaPorEmail(Persona persona) {
+        return personaDao.findPersonaByEmail(persona);
     }
 
     @Override
-    public void regisrarPersona(Persona persona) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void registrarPersona(Persona persona) {
+        personaDao.insertPersona(persona);
     }
 
     @Override
     public void modificarPersona(Persona persona) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        personaDao.updatePersona(persona);
     }
 
     @Override
     public void eliminarPersona(Persona persona) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        personaDao.deletePersona(persona);
     }
     
 }

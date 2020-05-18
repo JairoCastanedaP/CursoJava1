@@ -21,18 +21,16 @@ import servicio.PersonaService;
  * @author ENVYX360
  */
 @WebServlet("/personas")
-
 public class PersonaServlet extends HttpServlet{
     
     @Inject
     PersonaService personaService;
     
     @Override
-    protected void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
-        
-        List<Persona> personas= personaService.listarPersonas();
-        System.out.println("presonas:"+personas);
-        request.setAttribute("personas",personas);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        List<Persona> personas = personaService.listarPersonas();
+        System.out.println("personas:" + personas);
+        request.setAttribute("personas", personas);
         request.getRequestDispatcher("/listadoPersonas.jsp").forward(request, response);
     }
 }
