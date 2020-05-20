@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.mycompany</groupId>
-    <artifactId>sga_jee_web4</artifactId>
+    <artifactId>sga_jee_web5Asociaciones</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
-    <name>sga_jee_web4</name>
+    <name>sga_jee_web5Asociaciones</name>
     
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
