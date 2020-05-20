@@ -7,6 +7,7 @@ package domain;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -42,7 +43,7 @@ public class Usuario implements Serializable {
     @Size(max = 45)
     private String password;
     @JoinColumn(name = "id_persona", referencedColumnName = "id_persona")
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Persona persona;
 
     public Usuario() {
@@ -55,6 +56,12 @@ public class Usuario implements Serializable {
     public Usuario(String useranme, String password) {
         this.useranme = useranme;
         this.password = password;
+    }
+
+    public Usuario(String userName, String password, Persona persona1) {
+        this.useranme= userName;
+        this.password=password;
+        this.persona=persona1;
     }
     
 

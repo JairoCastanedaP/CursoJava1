@@ -8,6 +8,7 @@ package domain;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -49,7 +50,7 @@ public class Persona implements Serializable {
     @Size(max = 45)
     private String telefono;
     //@OneToMany(mappedBy = "persona")
-    @OneToMany(mappedBy = "persona",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "persona",cascade = CascadeType.ALL)
     private List<Usuario> usuarioList;
 
     public Persona() {
